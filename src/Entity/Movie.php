@@ -40,13 +40,15 @@ class Movie
 
     /**
      * @var File|null
-     * @ORM\OneToOne(targetEntity="App\Entity\File", mappedBy="id")
+     * @ORM\OneToOne(targetEntity="App\Entity\Image")
+     * @ORM\JoinColumn(name="screens_id", referencedColumnName="id")
      */
     private $screens;
 
     /**
      * @var File
-     * @ORM\OneToOne(targetEntity="App\Entity\File", mappedBy="id")
+     * @ORM\OneToOne(targetEntity="App\Entity\Image")
+     * @ORM\JoinColumn(name="cover_id", referencedColumnName="id")
      */
     private $cover;
 
@@ -110,5 +112,37 @@ class Movie
         $this->screens = $screens;
 
         return $this;
+    }
+
+    /**
+     * @return File[]|Collection
+     */
+    public function getFiles()
+    {
+        return $this->files;
+    }
+
+    /**
+     * @param File[]|Collection $files
+     */
+    public function setFiles($files): void
+    {
+        $this->files = $files;
+    }
+
+    /**
+     * @return File
+     */
+    public function getCover(): ?File
+    {
+        return $this->cover;
+    }
+
+    /**
+     * @param File $cover
+     */
+    public function setCover(?File $cover): void
+    {
+        $this->cover = $cover;
     }
 }
