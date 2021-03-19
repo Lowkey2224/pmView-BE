@@ -15,7 +15,7 @@ use Symfony\Contracts\HttpClient\ResponseInterface;
 
 class PremiumizeMeAdapter implements LoggerAwareInterface
 {
-    private $apiKey = "yx3gizdf4gcxmg9f";
+    private $apiKey;
     private $baseUri = "https://www.premiumize.me/api/";
     /** @var HttpClientInterface */
     private $client;
